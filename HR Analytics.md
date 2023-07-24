@@ -1,4 +1,4 @@
-## Employees Age Group Wise
+### Employees Age Group Wise
 
 ````sql
 SELECT
@@ -13,7 +13,7 @@ ORDER BY
   COUNT(EmpID) DESC;
 ````
 
-** Employees in the Age Group of 26-35 are 41.46% followed by 36 - 45 are 31.55%, 46 - 55 are 15.67%, 18 - 25 are 8.22% and  55+ are 3.09%.**
+**Employees in the Age Group of 26-35 are 41.46% followed by 36 - 45 are 31.55%, 46 - 55 are 15.67%, 18 - 25 are 8.22% and  55+ are 3.09%.**
 
 ## Attrition Rate
 select count(*) Emploee_Left, concat(round((COUNT(EmpID) / (SELECT COUNT(*) FROM hr_analytics) * 100),2),"%") AS Attrition_Rate

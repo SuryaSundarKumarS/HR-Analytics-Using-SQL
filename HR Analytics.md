@@ -11,6 +11,14 @@ group by
 order by
   count(empid) desc;
 ````
+| Age Group | Employees | Percentage |
+|-----------|-----------|------------|
+| 26-35     | 590       | 41.46%     |
+| 36-45     | 449       | 31.55%     |
+| 46-55     | 223       | 15.67%     |
+| 18-25     | 117       | 8.22%      |
+| 55+       | 44        | 3.09%      |
+
 
 **Employees in the Age Group of 26-35 are 41.46% followed by 36 - 45 are 31.55%, 46 - 55 are 15.67%, 18 - 25 are 8.22% and  55+ are 3.09%.**
 

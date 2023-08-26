@@ -1,4 +1,4 @@
-### Employees Age Group Wise
+### 1) Employees Age Group Wise
 ````sql
 select
 agegroup,
@@ -22,7 +22,7 @@ order by
 **Employees in the Age Group of 26-35 are 41.46% followed by 36 - 45 are 31.55%, 46 - 55 are 15.67%, 18 - 25 are 8.22% and  55+ are 3.09%.**
 
 
-### Attrition Rate
+### 2) Attrition Rate
 ````sql
 select count(*) emploee_left, concat(round((count(empid) / (select count(*) from hr_analytics) * 100),2),"%") as attrition_rate
 from hr_analytics
@@ -35,7 +35,7 @@ where attrition = "yes";
 **Attrition Rate is 16.16%.**
 
 
-## Attrition Age Group Wise
+## 3) Attrition Age Group Wise
 ````sql
 select agegroup, count(attrition) employees_left, concat(round((count(empid) / (select count(*) from hr_analytics) * 100),2),"%") as attrition_percentage
 from hr_analytics
@@ -54,7 +54,7 @@ order by count(attrition) desc;
 **Employees in the Age Group of 26-35(7.8%) are leaving the company more in number followed by 18 - 25(3.02%),36 - 45(2.88%), 46-55(1.90%) and 55+(0.56%).**
 
 
-## Employees by Age  Group
+## 4) Employees by Age  Group
 ````sql
 select businesstravel,agegroup, count(businesstravel) employees, concat(round((count(empid) / (select count(*) from hr_analytics) * 100),2),"%") as percentage
 from hr_analytics
@@ -84,7 +84,7 @@ order by count(businesstravel) desc, businesstravel desc;
 **Employees in the Age Group of 26-35(28.04%), 36-45(21.71%) and 46-55(11.74%) are traveling rarely when compared to other.**
 
 
-## Attrition by businesstravel and agegroup
+## 5) Attrition by businesstravel and agegroup
 ````sql
 select businesstravel,agegroup, count(businesstravel) employees, concat(round((count(empid) / (select count(*) from hr_analytics) * 100),2),"%") as attrition_percentage
 from hr_analytics
@@ -112,7 +112,7 @@ order by count(businesstravel) desc;
 **Employees belongs to age group 26-35(4.78%) - Travel Rarely,26-35(2.60%) - Travel frequently, 36 - 45(2.11%) - Travel Rarely.**
 
 
-## Avg Daily Rate by Agegroup
+## 6) Avg Daily Rate by Agegroup
 ````sql
 select agegroup, avg(dailyrate) average_daily_rate
 from hr_analytics
@@ -130,7 +130,7 @@ order by avg(dailyrate) desc;
 **Employees in the age group 46 - 55 are earning an average daily rate of $824.2 and 18 - 25 are earning a average daily rate of $772.**
 
 
-## Attrition by businesstravel and agegroup
+## 7) Attrition by businesstravel and agegroup
 ````sql
 select agegroup, gender, department, avg(dailyrate), count(attrition) employees_left, concat(round((count(empid) / (select count(*) from hr_analytics) * 100),2),"%") as attrition_percentage
 from hr_analytics
@@ -150,7 +150,7 @@ order by count(attrition) desc;
 **Employees in the Research & Development(68 - 4.78%) and Human Resourcces Departments(3.02%) are leaving the company are in more number.**
 
 
-## Distance from home by Attrirtion
+## 8) Distance from home by Attrirtion
 ````sql
 select 
     case
@@ -178,7 +178,7 @@ order by employees_left desc;
 **Employess who are in the distance of 1 - 10 kms are leaving in more Male - 6.32%, Female - 3.37%.**
 
 
-## Education by Attrirtion
+## 9) Education by Attrirtion
 ````sql
 select education,educationfield, count(attrition) employees_left, concat(round((count(empid) / (select count(*) from hr_analytics) * 100),2),"%") as attrition_percentage
 from hr_analytics
@@ -198,7 +198,7 @@ order by count(attrition) desc;
 **Employes with Life Sciences(6.18%) and Medical(4.01%) as there education field are leaving in more number.**
 
 
-## Gender by Attrirtion
+## 10) Gender by Attrirtion
 ````sql
 select gender, count(attrition) employees_left, concat(round((count(empid) / (select count(*) from hr_analytics) * 100),2),"%") as attrition_percentage
 from hr_analytics
@@ -214,7 +214,7 @@ order by count(attrition) desc;
 **Male(10.26%) Employees are leaving in more number than compared to female(5.90%) employees.**
 
 
-## Marital Status by Attrirtion
+## 11) Marital Status by Attrirtion
 ````sql
 select maritalstatus, count(attrition) employees_left, concat(round((count(empid) / (select count(*) from hr_analytics) * 100),2),"%") as attrition_percentage
 from hr_analytics
@@ -231,7 +231,7 @@ order by count(attrition) desc;
 **Employees whose marital staus Single(8.22%) and Married(5.62%) are leaving in more number.**
 
 
-## Hourly Rate and Job level by Attrirtion
+## 12) Hourly Rate and Job level by Attrirtion
 ````sql
 select joblevel, avg(hourlyrate), count(attrition) employees_left, concat(round((count(empid) / (select count(*) from hr_analytics) * 100),2),"%") as attrition_percentage
 from hr_analytics
@@ -248,7 +248,7 @@ order by count(attrition) desc;
 | 5        | 61.8000           | 5              | 0.35%               |
 
 
-## job level by employees
+## 13) job level by employees
 ````sql
 select joblevel,count(*) employees, concat(round((count(empid) / (select count(*) from hr_analytics) * 100),2),"%") as attrition_percentage  
 from hr_analytics
@@ -265,7 +265,7 @@ group by joblevel;
 **Employees in the Job level 1(36.54%) and 2(36.68%) are leaving in more number.**  
 
 
-## salaryslab by Attrirtion
+## 14) salaryslab by Attrirtion
 ````sql
 select salaryslab, count(attrition) employees_left, concat(round((count(empid) / (select count(*) from hr_analytics) * 100),2),"%") as attrition_percentage
 from hr_analytics
@@ -283,7 +283,7 @@ order by count(attrition) desc;
 **Employees in the slary slab upto 5k(11.10%) and 5k - 10k(3.37%) are leaving in more number.**
 
 
-## NumCompaniesWorked by Attrirtion
+## 15) NumCompaniesWorked by Attrirtion
 ````sql
 select numcompaniesworked, count(attrition) employees_left, concat(round((count(empid) / (select count(*) from hr_analytics) * 100),2),"%") as attrition_percentage
 from hr_analytics
@@ -307,7 +307,7 @@ order by count(attrition) desc;
 **Employees who are having 0 - 1 year(6.68%) experience are leaving in more number.**
 
 
-## Jobsatisfaction by Attrirtion
+## 16) Jobsatisfaction by Attrirtion
 ````sql
 select 
     case
@@ -339,7 +339,7 @@ order by employees_left desc;
 **Males(5.62%) felt the job satisfaction as best.**
 
 
-## Worklifebalance by Attrirtion.
+## 17) Worklifebalance by Attrirtion.
 ````sql
 select 
     case
@@ -371,7 +371,7 @@ order by employees_left desc;
 **Even employees(8.91%) felt Work Life Balnce was good but they are leaving.**
 
 
-## Avg Percent Salary Hike and job level by Attrirtion
+## 18) Avg Percent Salary Hike and job level by Attrirtion
 ````sql
 select joblevel, avg(percentsalaryhike), count(attrition) Employees_left, concat(round((COUNT(EmpID) / (SELECT COUNT(*) FROM hr_analytics) * 100),2),"%") AS Attrition_Percentage
 from hr_analytics
@@ -390,7 +390,7 @@ order by count(attrition) desc;
 **13.35% Employees belongs to low job level are gettibg same hike nearly 15%**
 
 
-## Relationshipsatisfaction by Attrirtion
+## 19) Relationshipsatisfaction by Attrirtion
 ````sql
 select 
     case
@@ -422,7 +422,7 @@ order by employees_left desc;
 **Both Male and Female of 6.82% felt the Relationship satisfaction as worst, So need to work on there bonding by arranging team lunches and extra-curicular activities to know them better.**
 
 
-## Jobinvolvement by Attrirtion
+## 20) Jobinvolvement by Attrirtion
 ````sql
 select 
     case
